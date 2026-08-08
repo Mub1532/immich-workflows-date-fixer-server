@@ -1,6 +1,6 @@
 {
   "name": "Image Metadata DEFAULT Timezone",
-  "description": "Set Date for items with DEFAULT timezone, but they have date info. NOTE: Immich server TZ was set to UTC, not tested on others.",
+  "description": "Set Date for items with DEFAULT UTC timezone, but they have date info. NOTE: Immich server TZ was set to UTC, not tested on others.",
   "enabled": true,
   "trigger": "AssetMetadataExtraction",
   "steps": [
