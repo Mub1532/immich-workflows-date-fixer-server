@@ -1,6 +1,7 @@
 import { FastifyPluginAsync } from 'fastify'
 import { ImmichWebhookData } from '../../types/immich/webhook'
-import { getUTCOffset, immichRequest, toTZOffsetString } from '../../utils/immich'
+import { getUTCOffset, toTZOffsetString } from '../../utils/dates'
+import { immichRequest } from '../../utils/immich'
 import { formatInTimeZone } from 'date-fns-tz'
 import { parseDateFromFilename } from '../../utils/dates'
 

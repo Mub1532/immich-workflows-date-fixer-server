@@ -18,3 +18,15 @@ export function parseDateFromFilename(filename: string): string | null {
 
   return `${localDateString}${offset}`
 }
+
+export function toTZOffsetString(imageDate: string): string {
+  const timeZone = process.env.TZ;
+  return formatInTimeZone(new Date(imageDate), timeZone as string, "yyyy-MM-dd'T'HH:mm:ssxxx")
+}
+
+export function getUTCOffset(imageDate: string): string {
+  const offset = formatInTimeZone(new Date(imageDate), process.env.TZ as string, 'xxx')
+  const hours = parseInt(offset.slice(0, 3), 10)
+
+  return hours === 0 ? 'UTC' : `UTC${hours > 0 ? '+' : ''}${hours}`
+}

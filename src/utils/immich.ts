@@ -1,4 +1,3 @@
-import { formatInTimeZone } from "date-fns-tz"
 import { ImmichAsset } from '../types/immich/webhook'
 
 const IMMICH_API_URL = process.env.IMMICH_API_URL
@@ -35,16 +34,4 @@ export async function immichRequest<T = ImmichAsset>(
 
   const text = await response.text()
   return text ? JSON.parse(text) : (undefined as T)
-}
-
-export function toTZOffsetString(imageDate: string): string {
-  const timeZone = process.env.TZ;
-  return formatInTimeZone(new Date(imageDate), timeZone as string, "yyyy-MM-dd'T'HH:mm:ssxxx")
-}
-
-export function getUTCOffset(imageDate: string): string {
-  const offset = formatInTimeZone(new Date(imageDate), process.env.TZ as string, 'xxx')
-  const hours = parseInt(offset.slice(0, 3), 10)
-
-  return hours === 0 ? 'UTC' : `UTC${hours > 0 ? '+' : ''}${hours}`
 }
