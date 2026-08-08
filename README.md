@@ -5,7 +5,9 @@ The server runs on port 3000, can be changed to whatever you want
 
 ----
 
-#### NOTE: Immich Workflows is in preview so it can change a lot. This was made in the `v3.1.0` version of immich.
+#### NOTE: Immich Workflows is in preview so it WILL change a lot. This was made in the `v3.1.0` version of immich.
+
+Future Immich versions will have more features in Workflows, so this may be deprecated & replaced in the future.
 
 ----
 **Note:** Tested on Immich Server v3.1.0 where the TZ was set to UTC (for my use case, it is set to UTC for consistent storage templates). Not tested on immich servers where TZ is something other than UTC.
