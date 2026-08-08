@@ -1,6 +1,6 @@
 # Immich Date Parser Workflows Server
 
-A small Fastify server that pairs with Immich Workflows to fix asset dates/timezones that Immich can't detect on its own, eg stuff uploaded without proper EXIF timezone info (downloaded videos, screenshots, social media images, camera issues, etc).
+A small Fastify server that pairs with [Immich Workflows (preview)](https://immich.app/blog/v3.0.0-release#:~:text=in%20future%20releases.-,Workflows%20(preview),-The%20first%20preview) to fix asset dates/timezones that Immich can't detect on its own, eg stuff uploaded without proper EXIF timezone info (downloaded videos, screenshots, social media images, camera issues, etc).
 The server runs on port 3000, can be changed to whatever you want
 
 ----
