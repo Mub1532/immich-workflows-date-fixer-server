@@ -1,0 +1,29 @@
+{
+  "name": "Image Metadata DEFAULT Timezone",
+  "description": "Set Date for items with DEFAULT timezone, but they have date info. NOTE: Immich server TZ was set to UTC, not tested on others.",
+  "enabled": true,
+  "trigger": "AssetMetadataExtraction",
+  "steps": [
+    {
+      "method": "immich-plugin-core#assetExifFilter",
+      "config": {
+        "pattern": "^UTC(?!\\+|\\-)",
+        "property": "timeZone",
+        "matchType": "regex"
+      },
+      "enabled": true,
+      "id": "id-8"
+    },
+    {
+      "method": "immich-plugin-core#webhook",
+      "config": {
+        "url": "https://<YOUR URL of this server>/webhooks/immich/noTimezone",
+        "method": "POST",
+        "headerName": "x-api-key",
+        "headerValue": "<your API_KEY env>"
+      },
+      "enabled": true,
+      "id": "id-9"
+    }
+  ]
+}

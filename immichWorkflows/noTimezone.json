@@ -1,0 +1,20 @@
+{
+  "trigger": "AssetMetadataExtraction",
+  "name": "Image Metadata No Timezone",
+  "description": "Set Date for items without timezone metadata, but they have date info",
+  "steps": [
+    {
+      "method": "immich-plugin-core#assetMissingTimeZoneFilter",
+      "config": {}
+    },
+    {
+      "method": "immich-plugin-core#webhook",
+      "config": {
+        "url": "https://<YOUR URL for this server>/webhooks/immich/noTimezone",
+        "method": "POST",
+        "headerName": "x-api-key",
+        "headerValue": "<your API_KEY env>"
+      }
+    }
+  ]
+}

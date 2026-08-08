@@ -1,0 +1,39 @@
+{
+  "trigger": "AssetMetadataExtraction",
+  "name": "Image Metadata, no Date",
+  "description": "Set Date for items without metadata DATE (1970), BUT with time in the name, 20260807_202726.mp4 for example",
+  "steps": [
+    {
+      "method": "immich-plugin-core#assetFileFilter",
+      "config": {
+        "pattern": "^\\d{8}_\\d{6}",
+        "matchType": "regex"
+      }
+    },
+    {
+      "method": "immich-plugin-core#assetDateFilter",
+      "config": {
+        "endDate": {
+          "day": 1,
+          "year": 1970,
+          "month": 1
+        },
+        "recurring": false,
+        "startDate": {
+          "day": 1,
+          "year": 1970,
+          "month": 1
+        }
+      }
+    },
+    {
+      "method": "immich-plugin-core#webhook",
+      "config": {
+        "url": "https://<YOUR URL for this server>/webhooks/immich/noDate",
+        "method": "POST",
+        "headerName": "x-api-key",
+        "headerValue": "<your API_KEY env>"
+      }
+    }
+  ]
+}
