@@ -2,13 +2,13 @@ import { formatInTimeZone } from 'date-fns-tz'
 
 /**
  * Parses a filename like "20260807_120635.mp4"
- * and returns an ISO string with the correct BST/GMT offset for that date.
+ * and returns an ISO string with the correct offset for that date based on the env TZ.
  * Returns null if the filename doesn't match the expected pattern.
  */
 export function parseDateFromFilename(filename: string): string | null {
   const match = filename.match(/(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})/)
 
-  if (!match) return null
+  if (!match) return null;
 
   const [, year, month, day, hour, minute, second] = match
 

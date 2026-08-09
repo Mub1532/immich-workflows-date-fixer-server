@@ -34,19 +34,33 @@ Future Immich versions will have more features in Workflows, so this may be depr
 ### No timezone workflow - Located in:(`/immichWorkflows/noTimezone.json`)
 <img width="365" height="249.5" alt="image" src="https://github.com/user-attachments/assets/357f2c26-7a2f-4ff6-a7b3-8bf7ab7a7d42" />
 
-For assets that have a date but not a proper timezone info in the exif data (undefined). For example downloading pics from social media, has the date but no timezone info, so immich assumes the time as UTC (set in the TZ of my immich server), not BST for example.
+This workflow runs **ONLY** for files without a specificed timezone in the exif data. (eg it is undefined)
+
+For assets that have a date but no timezone info in the exif data. This will correct the timezone based on the env timezone from this server.
+**Example Usecase:** Downloading pics from social media, (sometimes) has the date info but no timezone info (in the exif metadata), so immich assumes the timezone as UTC (which is what my immich server timezone is in), instead of the correct timezone, for example BST.
 
 ### UTC workflow - Located in:(`/immichWorkflows/defaultTimezone.json`)
 <img width="259" height="241.5" alt="image" src="https://github.com/user-attachments/assets/663f0373-30b8-4801-ba06-c0930f581207" />
 
-Similar to first workflow. For assets that have a date but not a proper timezone info in the exif data (its set to UTC). For example downloading videos from social media using yt-dlp, has the date but timezone is set to UTC regardless of location.
+This workflow runs **ONLY** for files where timezone is explicitly set to UTC.
+This workflow **ONLY** alters the date and timezone info, if the offset is different to UTC (eg offset is more than 0).
+
+Similar to first workflow. For assets that have a date but timezone info is set as UTC. Corrects the timezone and date IF NEEDED. For example if the timezone was GMT, no changes will be made since GMT and UTC are the same timezone with 0 offset.
+
+**Example Usecase:** Downloading videos from social media using yt-dlp, has the date but date+timezone metadata is set to UTC, regardless of region, system timezone etc. Therefore by default Immich will show the date as UTC.
 
 ### No Date workflow - Located in:(`/immichWorkflows/noDateMeta.json`)
 <img width="259" height="241.5" alt="image" src="https://github.com/user-attachments/assets/663f0373-30b8-4801-ba06-c0930f581207" />
 
-For files without a date set, eg it says 1 Jan 1970. This parses the date from the name in YYYYMMDD_HHMMSS format (for my use case, files were named like this, you can edit the regex how you like in the immich workflows page). 
+This workflow runs **ONLY** for files that have no date info, eg the date is set to **ONLY** 1 Jan 1970.
+This workflow runs **ONLY** for files that have a date in the filename in `YYYYMMDD_HHMMSS` format.
 
-For example, Samsungs auto stories feature, creates the video but does not set a date, so it defaults to 1970. However it shows the date in the filename in the YYYYMMDD_HHMMSS format using local timezone, so this workflow sets the correct date.
+NOTE: If you edit the regex for the filenames in the schema, this must be edited in the code also.
+For example if you want it to run with files in the `YYYY-MM-DDTHH:mm:ss` format, you would need to edit the schema regex and also the regex in the typescript code.
+
+For files without a date set, eg it is set to 1 Jan 1970. This parses the correct date from the name in `YYYYMMDD_HHMMSS` format (for my use case, files were named like this, you can edit the regex how you like in the immich workflows page). 
+
+**Example Usecase:** Samsung Gallery auto stories feature, when exporting the story as a video the video does not set a date, the date is only in the filename, so it defaults to 1 Jan 1970 in the metadata which gets put on Immich. So this workflow sets the date metadata using that `YYYYMMDD_HHMMSS` date from the filename and timezone from this servers env. 
 
 ## Notes
 
