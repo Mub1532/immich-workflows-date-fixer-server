@@ -20,6 +20,7 @@ Future Immich versions will have more features in Workflows, so this may be depr
 - `TZ` in the env, set it to what timezone you want the photos to be in, for example Europe/London for GMT & BST.
 - `IMMICH_URL` is your immich url
 - `IMMICH_API_KEY` is the api key needed to communicate with the Immich Server. Minimum permissions needed are `assets.update`
+- To get an Immich API Key, Go to User Settings > API Keys in the Immich web application
 - Run this server, by default is port 3000.
 - In workflows schema, replace the immich url placeholder with the url of where this server is running, or the IP and port etc.
 

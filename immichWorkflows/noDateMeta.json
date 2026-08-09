@@ -29,10 +29,10 @@
     {
       "method": "immich-plugin-core#webhook",
       "config": {
-        "url": "https://<YOUR URL for this server>/webhooks/immich/noDate",
+        "url": "<YOUR URL for the server (NOT IMMICH URL)>/webhooks/immich/noDate",
         "method": "POST",
         "headerName": "x-api-key",
-        "headerValue": "<your API_KEY env>"
+        "headerValue": "<your API_KEY env (NOT IMMICH API KEY)>"
       }
     }
   ]

@@ -10,10 +10,10 @@
     {
       "method": "immich-plugin-core#webhook",
       "config": {
-        "url": "https://<YOUR URL for this server>/webhooks/immich/noTimezone",
+        "url": "<YOUR URL for the server (NOT IMMICH URL)>/webhooks/immich/noTimezone",
         "method": "POST",
         "headerName": "x-api-key",
-        "headerValue": "<your API_KEY env>"
+        "headerValue": "<your API_KEY env (NOT IMMICH API KEY)>"
       }
     }
   ]
