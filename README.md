@@ -14,7 +14,19 @@ Future Immich versions will have more features in Workflows, so this may be depr
 
 ## Setup
 
-Copy `.env.example` to `.env` and fill it out NOTE: Server refuses to start without these env
+- Copy `.env.example` to `.env` and fill it out NOTE: Server refuses to start without these env
+
+- `API_KEY` in the env, is what you want this servers API Key to be, for requests. This key you will add into the immich workflow x-api-key section.
+- `TZ` in the env, set it to what timezone you want the photos to be in, for example Europe/London for GMT & BST.
+- `IMMICH_URL` is your immich url
+- `IMMICH_API_KEY` is the api key needed to communicate with the Immich Server. Minimum permissions needed are `assets.update`
+- Run this server, by default is port 3000.
+- In workflows schema, replace the immich url placeholder with the url of where this server is running, or the IP and port etc.
+
+- Choose which workflows you want from `./immichWorkflows`, paste into immich json schema. Edit the values which are in <> to your specific values.
+- Check that the connection was successful, for example refresh metadata of a single image.
+
+- Edit the schema to your liking (If changing functionality, code MAY need to be changed, eg changing the date format filter will need to change the date format regex in the code also)
 
 ## Workflows
 
