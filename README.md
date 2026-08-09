@@ -37,15 +37,16 @@ Future Immich versions will have more features in Workflows, so this may be depr
 This workflow runs **ONLY** for files without a specificed timezone in the exif data. (eg it is undefined)
 
 For assets that have a date but no timezone info in the exif data. This will correct the timezone based on the env timezone from this server.
+
 **Example Usecase:** Downloading pics from social media, (sometimes) has the date info but no timezone info (in the exif metadata), so immich assumes the timezone as UTC (which is what my immich server timezone is in), instead of the correct timezone, for example BST.
 
 ### UTC workflow - Located in:(`/immichWorkflows/defaultTimezone.json`)
 <img width="259" height="241.5" alt="image" src="https://github.com/user-attachments/assets/663f0373-30b8-4801-ba06-c0930f581207" />
 
 This workflow runs **ONLY** for files where timezone is explicitly set to UTC.
-This workflow **ONLY** alters the date and timezone info, if the offset is different to UTC (eg offset is more than 0).
+This workflow **ONLY** alters the date and timezone info IF the time offset is different to UTC.
 
-Similar to first workflow. For assets that have a date but timezone info is set as UTC. Corrects the timezone and date IF NEEDED. For example if the timezone was GMT, no changes will be made since GMT and UTC are the same timezone with 0 offset.
+Similar to first workflow. For assets that have a date but timezone info is set as UTC. Corrects the timezone and date IF NEEDED. For example if the timezone was GMT, no changes will be made since GMT and UTC are the same timezone with 0 offset. (and immich will always show 0 offset times as UTC regardless of your servers timezone, app timezone etc)
 
 **Example Usecase:** Downloading videos from social media using yt-dlp, has the date but date+timezone metadata is set to UTC, regardless of region, system timezone etc. Therefore by default Immich will show the date as UTC.
 
