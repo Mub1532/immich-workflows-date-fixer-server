@@ -38,7 +38,7 @@ This workflow runs **ONLY** for files without a specificed timezone in the exif 
 
 For assets that have a date but no timezone info in the exif data. This will correct the timezone based on the env timezone from this server.
 
-**Example Usecase:** Downloading pics from social media, (sometimes) has the date info but no timezone info (in the exif metadata), so immich assumes the timezone as UTC (which is what my immich server timezone is in), instead of the correct timezone, for example BST.
+**Example Usecase:** Copying a picture in a browser strips all metadata and uploading to immich directly in the web ui does not accumulate for this. So even if the browser has a timezone, the picture won't. Or Downloading pics from social media, (sometimes) has the date info but no timezone info (in the exif metadata), so immich assumes the timezone as UTC (which is what my immich server timezone is in), instead of the correct timezone, for example BST.
 
 ### UTC workflow - Located in:(`/immichWorkflows/defaultTimezone.json`)
 <img width="259" height="241.5" alt="image" src="https://github.com/user-attachments/assets/663f0373-30b8-4801-ba06-c0930f581207" />
