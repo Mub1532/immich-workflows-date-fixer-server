@@ -1,10 +1,10 @@
 import { ImmichAsset } from '../types/immich/webhook'
 
-const IMMICH_API_URL = process.env.IMMICH_API_URL
+const IMMICH_URL = process.env.IMMICH_URL
 const IMMICH_API_KEY = process.env.IMMICH_API_KEY
 
-if (!IMMICH_API_URL || !IMMICH_API_KEY) {
-  throw new Error('IMMICH_API_URL and IMMICH_API_KEY must be set in env')
+if (!IMMICH_URL || !IMMICH_API_KEY) {
+  throw new Error('IMMICH_URL and IMMICH_API_KEY must be set in env')
 }
 
 type ImmichRequestOptions = {
@@ -16,7 +16,7 @@ export async function immichRequest<T = ImmichAsset>(
   path: string,
   { method = 'GET', body }: ImmichRequestOptions = {}
 ): Promise<T> {
-  const url = `${IMMICH_API_URL}${path}`
+  const url = `${IMMICH_URL}${IMMICH_URL?.endsWith("/") ? "api" : "/api"}${path}`
 
   const response = await fetch(url, {
     method,

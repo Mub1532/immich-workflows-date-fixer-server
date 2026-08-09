@@ -50,7 +50,7 @@ For example, Samsungs auto stories feature, creates the video but does not set a
 ## Notes
 
 - All routes check the request came from Immich itself via the `immich-server/` user-agent prefix, plus an `x-api-key` header matching `API_KEY`.
-- Timezone conversion uses `date-fns-tz` so Daylight savings is automatically worked out and considered.
+- Timezone conversion uses `date-fns-tz` so Daylight savings is automatically worked out.
 
 ## Other Notes
 This was made for my specific use case, and your use case may or may not need tweaking of the schema or code. Please try it out before using it on all your files.

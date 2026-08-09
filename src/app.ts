@@ -9,7 +9,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   opts
 ): Promise<void> => {
 
-  const reqENV = ['API_KEY', 'IMMICH_API_URL', 'IMMICH_API_KEY', 'TZ']
+  const reqENV = ['API_KEY', 'IMMICH_URL', 'IMMICH_API_KEY', 'TZ']
 
   const missingENV = reqENV.filter((key) => !process.env[key])
 
