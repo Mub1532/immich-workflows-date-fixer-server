@@ -48,7 +48,7 @@ This workflow **ONLY** alters the date and timezone info IF the time offset is d
 
 Similar to first workflow. For assets that have a date but timezone info is set as UTC. Corrects the timezone and date IF NEEDED. For example if the timezone was GMT, no changes will be made since GMT and UTC are the same timezone with 0 offset. (and immich will always show 0 offset times as UTC regardless of your servers timezone, app timezone etc)
 
-**Example Usecase:** Downloading videos from social media using yt-dlp, has the date but date+timezone metadata is set to UTC, regardless of region, system timezone etc. Therefore by default Immich will show the date as UTC.
+**Example Usecase:** Downloading videos from social media using YTDLnis (yt-dlp), has the date but date+timezone metadata is set to UTC, regardless of region, system timezone etc. Therefore by default Immich will show the date as UTC.
 
 ### No Date workflow - Located in:(`/immichWorkflows/noDateMeta.json`)
 <img width="259" height="241.5" alt="image" src="https://github.com/user-attachments/assets/663f0373-30b8-4801-ba06-c0930f581207" />
